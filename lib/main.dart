@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+class MyAppState extends State<MyApp>{
   int i;
   void answer(){
-    i=0;
+    setState(() {
+      i=0;
+    });
     print('Answer Button Pressed');
   }
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('Test App 1')),
@@ -19,11 +27,11 @@ class MyApp extends StatelessWidget {
             'Question 1 : Placeholder Sentence placeholding the area for a non-placeholder sentence?',style: TextStyle(fontSize: 20)
           ),
           Row(children: <Widget>[
-            RaisedButton(onPressed: answer, child: Text('Option 1')),
-            RaisedButton(onPressed: () => print('Answer ${i++} Pressed') , child: Text('Option 2'))
+            RaisedButton(onPressed: answer, child: Text('Set to 0')),
+            RaisedButton(onPressed: () =>setState(() => print('Answer ${i++} Pressed')) , child: Text('Increment'))
           ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
           Row(children: <Widget>[
-            RaisedButton(onPressed: () {print('Answer 3 Pressed');i=4;}, child: Text('Option 3')),
+            RaisedButton(onPressed: () => setState(() {print('Answer 3 Pressed');i+=4;}), child: Text('Add 4')),
             RaisedButton(onPressed: null, child: Text('Option 4')),
           ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
           Text('$i was selected')
