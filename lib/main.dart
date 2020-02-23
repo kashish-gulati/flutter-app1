@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  int i;
   void answer(){
+    i=0;
     print('Answer Button Pressed');
   }
   @override
@@ -18,12 +20,13 @@ class MyApp extends StatelessWidget {
           ),
           Row(children: <Widget>[
             RaisedButton(onPressed: answer, child: Text('Option 1')),
-            RaisedButton(onPressed: () => print('Answer 2 Pressed') , child: Text('Option 2'))
+            RaisedButton(onPressed: () => print('Answer ${i++} Pressed') , child: Text('Option 2'))
           ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
           Row(children: <Widget>[
-            RaisedButton(onPressed: () {print('Answer 3 Pressed');}, child: Text('Option 3')),
+            RaisedButton(onPressed: () {print('Answer 3 Pressed');i=4;}, child: Text('Option 3')),
             RaisedButton(onPressed: null, child: Text('Option 4')),
-          ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,)
+          ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
+          Text('$i was selected')
         ]),
       ),
     );
