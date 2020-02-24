@@ -27,11 +27,11 @@ class _MyAppState extends State<MyApp>{
         body: Column(children: <Widget>[
           Question(
             'Question 1 : Placeholder Sentence placeholding the area for a non-placeholder sentence?'),
-          Answer(1,"Option 1",answerHandler),
-          Answer(2,"Option 2",answerHandler),
-          Answer(3,"Option 3",answerHandler),
-          Answer(4,"Option 4",answerHandler),
-          Text('$_i was selected')
+          Answer(1,"Option 1",() => setState(()=>_i=1)),
+          Answer(2,"Option 2",() => setState(()=>_i=0)),
+          Answer(3,"Option 3",() => setState(()=>_i=0)),
+          Answer(4,"Option 4",() => setState(()=>_i=0)),
+          (_i!=null)?(_i==1)?Text("Correct",style: TextStyle(color: Colors.green),):Text("Incorrect",style: TextStyle(color: Colors.red),):Container(),
         ]),
       ),
     );

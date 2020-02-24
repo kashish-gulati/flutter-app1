@@ -7,6 +7,6 @@ class Answer extends StatelessWidget {
   Answer(this.optionNumber, this.optionStatement,this.optionHandler);
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(child: Text(optionStatement),color: Colors.limeAccent, onPressed: null,);
+    return RaisedButton(child: Text(optionStatement),color: Colors.lightBlue, onPressed: optionHandler,);
   }
 }
