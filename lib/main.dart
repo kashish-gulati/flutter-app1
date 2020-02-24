@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp>{
             RaisedButton(onPressed: () => setState(() {print('Answer 3 Pressed');_i-=4;}), child: Text('Subtract 4')),
             RaisedButton(onPressed: null, child: Text('Option 4')),
           ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
-          Text('$i was selected')
+          Text('$_i was selected')
         ]),
       ),
     );
