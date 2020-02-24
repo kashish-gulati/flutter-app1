@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './ques.dart';
+import './answer.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,7 @@ class MyApp extends StatefulWidget {
 }
 class _MyAppState extends State<MyApp>{
   int _i;
-  void answer(){
+  void answerHandler(){
     setState(() {
       _i=0;
     });
@@ -26,14 +27,10 @@ class _MyAppState extends State<MyApp>{
         body: Column(children: <Widget>[
           Question(
             'Question 1 : Placeholder Sentence placeholding the area for a non-placeholder sentence?'),
-          Row(children: <Widget>[
-            RaisedButton(onPressed: answer, child: Text('Set to 0')),
-            RaisedButton(onPressed: () =>setState(() => print('Answer ${_i++} Pressed')) , child: Text('Increment'))
-          ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
-          Row(children: <Widget>[
-            RaisedButton(onPressed: () => setState(() {print('Answer 3 Pressed');_i-=4;}), child: Text('Subtract 4')),
-            RaisedButton(onPressed: null, child: Text('Option 4')),
-          ],mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
+          Answer(1,"Option 1",answerHandler),
+          Answer(2,"Option 2",answerHandler),
+          Answer(3,"Option 3",answerHandler),
+          Answer(4,"Option 4",answerHandler),
           Text('$_i was selected')
         ]),
       ),
