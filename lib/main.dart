@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './ques.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -23,9 +25,8 @@ class _MyAppState extends State<MyApp>{
       home: Scaffold(
         appBar: AppBar(title: Text('Test App 1')),
         body: Column(children: <Widget>[
-          Text(
-            'Question 1 : Placeholder Sentence placeholding the area for a non-placeholder sentence?',style: TextStyle(fontSize: 20)
-          ),
+          Question(
+            'Question 1 : Placeholder Sentence placeholding the area for a non-placeholder sentence?'),
           Row(children: <Widget>[
             RaisedButton(onPressed: answer, child: Text('Set to 0')),
             RaisedButton(onPressed: () =>setState(() => print('Answer ${_i++} Pressed')) , child: Text('Increment'))
